@@ -5,7 +5,7 @@ class DropDown extends React.Component {
         values: []
     }
     componentDidMount() {
-       fetch('json.json')
+       fetch('https://gist.githubusercontent.com/keeguon/2310008/raw/bdc2ce1c1e3f28f9cab5b4393c7549f38361be4e/countries.json')
         .then(function(res) {
             return res.json();
         }).then(function(json) {
@@ -16,10 +16,10 @@ class DropDown extends React.Component {
     }
     render(){
         return <div className="drop-down">
-            <p>I would like to render a dropdown here from the values object</p>
+           
               <select>{
                  this.state.values.map((obj) => {
-                     return <option value={obj.id}>{obj.name}</option>
+                     return <option value={obj.name}>{obj.code}</option>
                  })
               }</select>
             </div>;
